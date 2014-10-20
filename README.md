@@ -1,4 +1,4 @@
-proxyquire-universal
+proxyquire-universal [![Build Status](https://travis-ci.org/bendrucker/proxyquire-universal.svg?branch=master)](https://travis-ci.org/bendrucker/proxyquire-universal)
 ====================
 
 Use [proxyquire](https://github.com/thlorenz/proxyquire) in Node and [proxyquireify](https://github.com/thlorenz/proxyquireify) in the browser with no code changes. 
