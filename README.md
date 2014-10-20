@@ -1,4 +1,22 @@
 proxyquire-universal
 ====================
 
-Proxyquire in Node and Proxyquireify in the browser with no code changes
+Use [proxyquire](https://github.com/thlorenz/proxyquire) in Node and [proxyquireify](https://github.com/thlorenz/proxyquireify) in the browser with no code changes. 
+
+## Usage
+
+Write your tests for Node:
+
+```js
+var proxyquire = require('proxyquire');
+proxyquire('./a', stubs);
+```
+
+Then add the `'proxyquire-universal'` plugin when you build your test bundle for the browser:
+
+```js
+browserify()
+  .plugin('proxyquire-universal')
+  .bundle()
+  .pipe(fs.createWriteStream('test-bundle.js'));
+```
