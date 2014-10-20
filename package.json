@@ -1,0 +1,23 @@
+{
+  "name": "proxyquire-universal",
+  "version": "1.0.0",
+  "description": "Proxyquire in Node and Proxyquireify in the browser with no code changes",
+  "main": "./src",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bendrucker/proxyquire-universal.git"
+  },
+  "keywords": [
+    "proxyquire",
+    "proxyquireify"
+  ],
+  "author": "Ben Drucker <bvdrucker@gmail.com> (http://www.bendrucker.me/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bendrucker/proxyquire-universal/issues"
+  },
+  "homepage": "https://github.com/bendrucker/proxyquire-universal"
+}
