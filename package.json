@@ -19,5 +19,19 @@
   "bugs": {
     "url": "https://github.com/bendrucker/proxyquire-universal/issues"
   },
-  "homepage": "https://github.com/bendrucker/proxyquire-universal"
+  "homepage": "https://github.com/bendrucker/proxyquire-universal",
+  "devDependencies": {
+    "browserify": "6",
+    "chai": "1",
+    "mocha": "1",
+    "proxyquire": "1",
+    "proxyquireify": "1"
+  },
+  "peerDependencies": {
+    "proxyquire": "1",
+    "proxyquireify": "1"
+  },
+  "dependencies": {
+    "through2": "~0.6.3"
+  }
 }
