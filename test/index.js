@@ -33,16 +33,14 @@ describe('proxyquire-universal', function () {
   it('ignores comments', function () {
     return bundle('comment').then(function (bundle) {
       expect(bundle)
-        .to.contain('require(\'proxyquire\')')
-        .and.to.not.contain('proxyquireify');
+        .to.contain('require(\'proxyquire\')');
     });
   });
 
   it('ignores strings', function () {
     return bundle('string').then(function (bundle) {
       expect(bundle)
-        .to.contain('var foo = \'require(\'proxyquire\')\'')
-        .and.to.not.contain('proxyquireify');
+        .to.contain('var foo = \'require(\\\'proxyquire\\\')\'');
     });
   });
 
