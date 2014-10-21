@@ -1,15 +1,19 @@
 'use strict';
 
-var through2 = require('through2');
+var through2    = require('through2');
+var jstransform = require('jstransform');
+var visitor     = require('./visitor');
+
 module.exports = function (file, options) {
   if (/\.json$/.test(file)) return through();
-  var data = '';
+
+  var code = '';
   function read (chunk, enc, next) {
-    data += chunk;
+    code += chunk;
     next();
   }
   function flush (next) {
-    this.push(data.replace('require(\'proxyquire\')', 'require(\'proxyquireify\')(require)'));
+    this.push(jstransform.transform([visitor], code).code);
     next();
   }
   return through2(read, flush);
