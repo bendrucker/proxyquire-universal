@@ -1,0 +1,1 @@
+var proxyquire = require("proxyquire");

@@ -22,4 +22,28 @@ describe('proxyquire-universal', function () {
     });
   });
 
+  it('rewrites proxyquire calls with double quotes', function () {
+    return bundle('double-quotes').then(function (bundle) {
+      expect(bundle)
+        .to.contain('require(\'proxyquireify\')(require)')
+        .and.to.not.contain('require("proxyquire")');
+    });
+  });
+
+  it('ignores comments', function () {
+    return bundle('comment').then(function (bundle) {
+      expect(bundle)
+        .to.contain('require(\'proxyquire\')')
+        .and.to.not.contain('proxyquireify');
+    });
+  });
+
+  it('ignores strings', function () {
+    return bundle('string').then(function (bundle) {
+      expect(bundle)
+        .to.contain('var foo = \'require(\'proxyquire\')\'')
+        .and.to.not.contain('proxyquireify');
+    });
+  });
+
 });
