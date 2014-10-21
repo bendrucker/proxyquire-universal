@@ -1,26 +1,47 @@
 'use strict';
 
-var browserify = require('browserify');
-var expect     = require('chai').expect;
+var browserify      = require('browserify');
+var streamToPromise = require('stream-to-promise');
+var expect          = require('chai').expect;
 
 describe('proxyquire-universal', function () {
 
-  var bundle;
-  beforeEach(function (done) {
-    browserify()
+  function bundle (scenario) {
+    return streamToPromise(browserify()
       .plugin(require('../'))
-      .add(__dirname + '/fixtures/test.js')
-      .bundle(function (err, _bundle_) {
-        if (err) return done(err);
-        bundle = _bundle_.toString();
-        done();
-      });
-  });
+      .add(__dirname + '/fixtures/' + scenario + '.js')
+      .bundle())
+      .call('toString');
+  };
 
   it('rewrites proxyquire calls', function () {
-    expect(bundle)
-      .to.contain('require(\'proxyquireify\')(require)')
-      .and.to.not.contain('require(\'proxyquire\')');
+    return bundle('default').then(function (bundle) {
+      expect(bundle)
+        .to.contain('require(\'proxyquireify\')(require)')
+        .and.to.not.contain('require(\'proxyquire\')');
+    });
+  });
+
+  it('rewrites proxyquire calls with double quotes', function () {
+    return bundle('double-quotes').then(function (bundle) {
+      expect(bundle)
+        .to.contain('require(\'proxyquireify\')(require)')
+        .and.to.not.contain('require("proxyquire")');
+    });
+  });
+
+  it('ignores comments', function () {
+    return bundle('comment').then(function (bundle) {
+      expect(bundle)
+        .to.contain('require(\'proxyquire\')');
+    });
+  });
+
+  it('ignores strings', function () {
+    return bundle('string').then(function (bundle) {
+      expect(bundle)
+        .to.contain('var foo = \'require(\\\'proxyquire\\\')\'');
+    });
   });
 
 });
