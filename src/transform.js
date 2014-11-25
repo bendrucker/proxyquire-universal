@@ -1,6 +1,6 @@
 'use strict';
 
-var through2    = require('through2');
+var through     = require('through2');
 var jstransform = require('jstransform');
 var visitor     = require('./visitor');
 
@@ -16,5 +16,5 @@ module.exports = function (file, options) {
     this.push(jstransform.transform([visitor], code).code);
     next();
   }
-  return through2(read, flush);
+  return through(read, flush);
 }
