@@ -1,6 +1,6 @@
 {
   "name": "proxyquire-universal",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Proxyquire in Node and Proxyquireify in the browser with no code changes",
   "main": "./src",
   "scripts": {
