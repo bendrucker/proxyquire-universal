@@ -20,3 +20,5 @@ browserify()
   .bundle()
   .pipe(fs.createWriteStream('test-bundle.js'));
 ```
+
+proxyquire-universal takes care of calling `bundle.plugin(proxyquireify.plugin)` automatically. You should not register proxyquireify manually.
