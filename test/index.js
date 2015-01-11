@@ -2,7 +2,9 @@
 
 var browserify      = require('browserify');
 var streamToPromise = require('stream-to-promise');
-var expect          = require('chai').expect;
+var expect          = require('chai').use(require('sinon-chai')).expect;
+var sinon           = require('sinon');
+var jstransform     = require('jstransform');
 
 describe('proxyquire-universal', function () {
 
@@ -41,6 +43,16 @@ describe('proxyquire-universal', function () {
     return bundle('string').then(function (bundle) {
       expect(bundle)
         .to.contain('var foo = \'require(\\\'proxyquire\\\')\'');
+    });
+  });
+
+  it('skips AST walk if no require is matched', function () {
+    sinon.spy(jstransform, 'transform');
+    return bundle('noop').then(function () {
+      expect(jstransform.transform).to.not.have.been.called;
+    })
+    .finally(function () {
+      jstransform.transform.restore();
     });
   });
 

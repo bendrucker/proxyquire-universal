@@ -27,6 +27,8 @@
     "mocha": "1",
     "proxyquire": "1",
     "proxyquireify": "1",
+    "sinon": "^1.12.2",
+    "sinon-chai": "^2.6.0",
     "stream-to-promise": "1"
   },
   "peerDependencies": {

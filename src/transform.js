@@ -11,5 +11,8 @@ module.exports = function (file, options) {
 }
 
 function replaceProxyquire (code) {
-  return jstransform.transform([visitor], code).code
+  if (/require\(\s*[\'"]proxyquire[\'"]\s*\)/.test(code)) {
+    return jstransform.transform([visitor], code).code
+  }
+  return code;
 } 
