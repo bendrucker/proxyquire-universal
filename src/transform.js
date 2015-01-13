@@ -3,6 +3,7 @@
 var through      = require('through2');
 var transformify = require('transformify');
 var jstransform  = require('jstransform');
+var hasRequire   = require('has-require');
 var visitor      = require('./visitor');
 
 module.exports = function (file, options) {
@@ -11,7 +12,7 @@ module.exports = function (file, options) {
 }
 
 function replaceProxyquire (code) {
-  if (/require\(\s*[\'"]proxyquire[\'"]\s*\)/.test(code)) {
+  if (hasRequire(code, 'proxyquire')) {
     return jstransform.transform([visitor], code).code
   }
   return code;
