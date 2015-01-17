@@ -1,7 +1,7 @@
 proxyquire-universal [![Build Status](https://travis-ci.org/bendrucker/proxyquire-universal.svg?branch=master)](https://travis-ci.org/bendrucker/proxyquire-universal)
 ====================
 
-Use [proxyquire](https://github.com/thlorenz/proxyquire) in Node and [proxyquireify](https://github.com/thlorenz/proxyquireify) in the browser with no code changes. 
+Browserify plugin that allows you to replace [proxyquire](https://github.com/thlorenz/proxyquire) with [proxyquireify](https://github.com/thlorenz/proxyquireify) without code changes. If you only need to run your tests in a browser, just use [proxyquireify](https://github.com/thlorenz/proxyquireify) directly. Make sure you're not using [proxyquire features that don't have proxyquireify counterparts](#unsupported-proxyquire-features).
 
 ## Usage
 
@@ -23,7 +23,7 @@ browserify()
 
 proxyquire-universal takes care of calling `bundle.plugin(proxyquireify.plugin)` automatically. You should not register proxyquireify manually.
 
-## Caveats
+## Unsupported Proxyquire Features
 
 proxyquireify has a very similar API to proxyquire and will be a perfect drop-in replacement for most use cases. However, there are certain proxyquire features that are not available in proxyquireify:
 
