@@ -1,1 +1,1 @@
-var foo = 'require(\'proxyquire\')';
+var foo = "require('proxyquire')";

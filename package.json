@@ -36,8 +36,8 @@
     "proxyquireify": "1"
   },
   "dependencies": {
+    "detective": "~4.0.0",
     "has-require": "~1.0.0",
-    "jstransform": "6",
     "through2": "~0.6.3",
     "transformify": "^0.1.2"
   }
