@@ -3,6 +3,13 @@ proxyquire-universal [![Build Status](https://travis-ci.org/bendrucker/proxyquir
 
 Browserify plugin that allows you to replace [proxyquire](https://github.com/thlorenz/proxyquire) with [proxyquireify](https://github.com/thlorenz/proxyquireify) without code changes. If you only need to run your tests in a browser, just use [proxyquireify](https://github.com/thlorenz/proxyquireify) directly. Make sure you're not using [proxyquire features that don't have proxyquireify counterparts](#unsupported-proxyquire-features).
 
+## Installing
+
+```sh
+$ npm install --save-dev proxyquire-universal proxyquire proxyquireify
+```
+proxyquire-universal sets proxyquire and proxyquireify as peer dependencies so all three packages will be siblings in your `node_modules` folder. You have full control over which versions are used.
+
 ## Usage
 
 Write your tests for Node:
