@@ -46,4 +46,14 @@ describe('proxyquire-universal', function () {
     });
   });
 
+  it('can handle multiple proxyquires', function () {
+    return bundle('multiple').then(function (bundle) {
+      expect(bundle)
+        .to.contain(
+          'var p1 = require(\'proxyquireify\')(require)\n' +
+          'var p2 = require(\'proxyquireify\')(require)'
+        )
+    });
+  });
+
 });
