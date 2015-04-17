@@ -1,1 +1,1 @@
-// require('proxyquire');
+// require('proxyquire')

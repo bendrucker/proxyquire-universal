@@ -4,7 +4,7 @@
   "description": "Proxyquire in Node and Proxyquireify in the browser with no code changes",
   "main": "./src",
   "scripts": {
-    "test": "mocha test"
+    "test": "standard && mocha test"
   },
   "repository": {
     "type": "git",
@@ -27,8 +27,7 @@
     "mocha": "1",
     "proxyquire": "1",
     "proxyquireify": "1",
-    "sinon": "^1.12.2",
-    "sinon-chai": "^2.6.0",
+    "standard": "~3.6.1",
     "stream-to-promise": "1"
   },
   "peerDependencies": {
@@ -40,5 +39,10 @@
     "has-require": "~1.0.0",
     "through2": "~0.6.3",
     "transformify": "^0.1.2"
+  },
+  "standard": {
+    "ignore": [
+      "test/fixtures/*.js"
+    ]
   }
 }

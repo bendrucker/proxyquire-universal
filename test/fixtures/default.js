@@ -1,1 +1,1 @@
-var p = require('proxyquire');
+var p = require('proxyquire')
