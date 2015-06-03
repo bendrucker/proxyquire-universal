@@ -46,5 +46,10 @@
     "ignore": [
       "test/fixtures/*.js"
     ]
-  }
+  },
+  "files": [
+    "index.js",
+    "transform.js",
+    "readme.md"
+  ]
 }
