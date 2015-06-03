@@ -38,3 +38,7 @@ proxyquireify has a very similar API to proxyquire and will be a perfect drop-in
 * [Disabling the `require` cache](https://github.com/thlorenz/proxyquire#forcing-proxyquire-to-reload-modules)
 
 If you discover a case where proxyquire and proxyquireify behave differently, please [open an issue](https://github.com/bendrucker/proxyquire-universal/issues/new) with relevant code.
+
+## License
+
+MIT © [Ben Drucker](http://bendrucker.me)
