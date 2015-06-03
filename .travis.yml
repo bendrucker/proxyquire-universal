@@ -1,13 +1,5 @@
 language: node_js
 node_js:
 - '0.10'
-sudo: false
-deploy:
-  provider: npm
-  email: bvdrucker@gmail.com
-  api_key:
-    secure: fgWnM5aNquSYyG1u5p9ppOaAQ6QNd/hJyUZ9MpBmsR6Akcm5ZKqp9iCpjTT5gjE6fX7VMKewJxx3PbwXwIvDJhsDCh/nbBa4oOWMO65P/l22SWREnJu+ktNGGeQIn8nvRBlMZ8jpcwSYrQDigANPoTRX6QyQU0YHQp9CD21THKU=
-  on:
-    tags: true
-    all_branches: true
-    repo: bendrucker/proxyquire-universal
+- '0.12'
+- iojs
