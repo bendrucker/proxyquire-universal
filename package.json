@@ -2,7 +2,7 @@
   "name": "proxyquire-universal",
   "version": "1.0.5",
   "description": "Proxyquire in Node and Proxyquireify in the browser with no code changes",
-  "main": "./src",
+  "main": "index.js",
   "scripts": {
     "test": "standard && mocha test"
   },
