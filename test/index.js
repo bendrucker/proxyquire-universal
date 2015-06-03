@@ -1,58 +1,58 @@
 'use strict'
 
-/*global describe, it*/
-
+var test = require('tape')
+var includes = require('array-includes')
 var browserify = require('browserify')
-var streamToPromise = require('stream-to-promise')
-var expect = require('chai').expect
+var printf = require('pff')
+var escapeStringRegexp = require('escape-string-regexp')
+var detective = require('detective')
+var proxyquireUniversal = require('../')
 
-describe('proxyquire-universal', function () {
-  function bundle (scenario) {
-    return streamToPromise(browserify()
-      .plugin(require('../'))
-      .add(__dirname + '/fixtures/' + scenario + '.js')
-      .bundle())
-      .call('toString')
+test(function (t) {
+  var pqify = 'require(\'proxyquireify\')(require)'
+  var pqifyRegexp = escape(pqify)
+
+  bundle('default', function (t, requires, code) {
+    console.log(requires)
+    t.ok(includes(requires, 'proxyquireify'))
+    t.notOk(includes(requires, 'proxyquire'))
+    t.ok(pqifyRegexp.test(code))
+  })
+
+  bundle('double-quotes', function (t, requires, code) {
+    t.ok(includes(requires, 'proxyquireify'))
+    t.notOk(includes(requires, 'proxyquire'))
+    t.ok(pqifyRegexp.test(code))
+  })
+
+  bundle('comment', function (t, requires) {
+    t.notOk(requires.length)
+  })
+
+  bundle('string', function (t, requires) {
+    t.notOk(requires.length)
+  })
+
+  bundle('multiple', function (t, requires, code) {
+    t.equal(requires.length, 2)
+    t.deepEqual(requires, ['proxyquireify', 'proxyquireify'])
+    t.equal(code.match(escape(pqify, 'g')).length, 2)
+  })
+
+  function escape (string, flags) {
+    return new RegExp(escapeStringRegexp(string), flags)
   }
 
-  it('rewrites proxyquire calls', function () {
-    return bundle('default').then(function (bundle) {
-      expect(bundle)
-        .to.contain('require(\'proxyquireify\')(require)')
-        .and.to.not.contain('require(\'proxyquire\')')
+  function bundle (scenario, callback) {
+    t.test(scenario, function (t) {
+      browserify()
+        .plugin(proxyquireUniversal)
+        .add(printf('%s/fixtures/%s.js', __dirname, scenario))
+        .bundle(function (err, bundle) {
+          if (err) return t.end(err)
+          callback(t, detective.find(bundle).strings, bundle.toString())
+          t.end()
+        })
     })
-  })
-
-  it('rewrites proxyquire calls with double quotes', function () {
-    return bundle('double-quotes').then(function (bundle) {
-      expect(bundle)
-        .to.contain('require(\'proxyquireify\')(require)')
-        .and.to.not.contain('require("proxyquire")')
-    })
-  })
-
-  it('ignores comments', function () {
-    return bundle('comment').then(function (bundle) {
-      expect(bundle)
-        .to.contain('require(\'proxyquire\')')
-    })
-  })
-
-  it('ignores strings', function () {
-    return bundle('string').then(function (bundle) {
-      expect(bundle)
-        .to.contain('var foo = "require(\'proxyquire\')"')
-    })
-  })
-
-  it('can handle multiple proxyquires', function () {
-    return bundle('multiple').then(function (bundle) {
-      expect(bundle)
-        .to.contain(
-          'var p1 = require(\'proxyquireify\')(require)\n' +
-          'var p2 = require(\'proxyquireify\')(require)'
-        )
-    })
-  })
-
+  }
 })

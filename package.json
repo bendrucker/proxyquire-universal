@@ -4,7 +4,7 @@
   "description": "Proxyquire in Node and Proxyquireify in the browser with no code changes",
   "main": "index.js",
   "scripts": {
-    "test": "standard && mocha test"
+    "test": "standard && tape test/*.js"
   },
   "repository": {
     "type": "git",
@@ -22,13 +22,15 @@
   },
   "homepage": "https://github.com/bendrucker/proxyquire-universal",
   "devDependencies": {
+    "array-includes": "~2.0.0",
     "browserify": "6",
-    "chai": "1",
-    "mocha": "1",
+    "escape-string-regexp": "~1.0.3",
+    "pff": "~1.0.0",
     "proxyquire": "1",
     "proxyquireify": "1",
     "standard": "~3.6.1",
-    "stream-to-promise": "1"
+    "stream-to-promise": "1",
+    "tape": "~4.0.0"
   },
   "peerDependencies": {
     "proxyquire": "1",
