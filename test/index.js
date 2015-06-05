@@ -39,6 +39,10 @@ test(function (t) {
     t.equal(code.match(escape(pqify, 'g')).length, 2)
   })
 
+  bundle('other', function (t, requires, code) {
+    t.deepEqual(requires, ['proxyquireify', 'xtend'])
+  })
+
   function escape (string, flags) {
     return new RegExp(escapeStringRegexp(string), flags)
   }

@@ -40,6 +40,7 @@
     "detective": "~4.0.0",
     "has-require": "~1.0.0",
     "patch-text": "~1.0.2",
+    "replace-requires": "~1.0.1",
     "through2": "~0.6.3",
     "transformify": "^0.1.2",
     "xtend": "~4.0.0"
