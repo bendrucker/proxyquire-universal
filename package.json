@@ -28,7 +28,7 @@
     "escape-string-regexp": "~1.0.3",
     "pff": "~1.0.0",
     "proxyquire": "1",
-    "proxyquireify": "1",
+    "proxyquireify": "^3.0.0",
     "standard": "^4.0.0",
     "stream-to-promise": "1",
     "tape": "~4.0.0",
@@ -36,7 +36,7 @@
   },
   "peerDependencies": {
     "proxyquire": "1",
-    "proxyquireify": ">= 1 < 3"
+    "proxyquireify": "^3.0.0"
   },
   "dependencies": {
     "replace-requires": "~1.0.1",
