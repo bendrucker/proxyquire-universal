@@ -34,13 +34,16 @@ test(function (t) {
   })
 
   bundle('multiple', function (t, requires, code) {
-    t.equal(requires.length, 2)
-    t.deepEqual(requires, ['proxyquireify', 'proxyquireify'])
+    var proxyquires = requires.filter(function (id) {
+      return id === 'proxyquireify'
+    })
+    t.equal(proxyquires.length, 2)
     t.equal(code.match(escape(pqify, 'g')).length, 2)
   })
 
   bundle('other', function (t, requires, code) {
-    t.deepEqual(requires, ['proxyquireify', 'xtend'])
+    t.ok(includes(requires, 'proxyquireify'))
+    t.ok(includes(requires, 'xtend'))
   })
 
   function escape (string, flags) {
