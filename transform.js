@@ -11,5 +11,5 @@ module.exports = function (file, options) {
 
 var replacement = 'require(\'proxyquireify\')(require)'
 function replaceProxyquire (code) {
-  return replaceRequires(code, {proxyquire: replacement})
+  return replaceRequires(code, { proxyquire: replacement })
 }

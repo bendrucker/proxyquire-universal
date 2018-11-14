@@ -22,16 +22,16 @@
   },
   "homepage": "https://github.com/bendrucker/proxyquire-universal",
   "devDependencies": {
-    "array-includes": "~2.0.0",
+    "array-includes": "~3.0.3",
     "browserify": "latest",
-    "detective": "~4.1.0",
+    "detective": "~5.1.0",
     "escape-string-regexp": "~1.0.3",
     "pff": "~1.0.0",
-    "proxyquire": "^1.6.0",
+    "proxyquire": "^2.1.0",
     "proxyquireify": "^3.0.0",
-    "standard": "^4.0.0",
-    "stream-to-promise": "1",
-    "tape": "~4.0.0",
+    "standard": "^12.0.1",
+    "stream-to-promise": "^2.2.0",
+    "tape": "~4.9.1",
     "xtend": "~4.0.0"
   },
   "peerDependencies": {
@@ -39,8 +39,8 @@
     "proxyquireify": ">= 1 < 4"
   },
   "dependencies": {
-    "replace-requires": "~1.0.1",
-    "through2": "~0.6.3",
+    "replace-requires": "~1.1.0",
+    "through2": "~3.0.0",
     "transformify": "^0.1.2"
   },
   "standard": {
@@ -51,5 +51,8 @@
   "files": [
     "index.js",
     "transform.js"
-  ]
+  ],
+  "engines": {
+    "node": ">=8"
+  }
 }
