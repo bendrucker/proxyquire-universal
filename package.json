@@ -51,5 +51,8 @@
   "files": [
     "index.js",
     "transform.js"
-  ]
+  ],
+  "engines": {
+    "node": ">=8"
+  }
 }
