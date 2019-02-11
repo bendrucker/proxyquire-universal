@@ -46,6 +46,8 @@ test(function (t) {
     t.ok(includes(requires, 'xtend'))
   })
 
+  t.end()
+
   function escape (string, flags) {
     return new RegExp(escapeStringRegexp(string), flags)
   }
