@@ -24,14 +24,14 @@
   "devDependencies": {
     "array-includes": "~3.0.3",
     "browserify": "latest",
-    "detective": "~5.1.0",
-    "escape-string-regexp": "~1.0.3",
+    "detective": "~5.2.0",
+    "escape-string-regexp": "~2.0.0",
     "pff": "~1.0.0",
     "proxyquire": "^2.1.0",
     "proxyquireify": "^3.0.0",
-    "standard": "^13.0.1",
+    "standard": "^14.0.0",
     "stream-to-promise": "^2.2.0",
-    "tape": "~4.10.0",
+    "tape": "~4.11.0",
     "xtend": "~4.0.0"
   },
   "peerDependencies": {
