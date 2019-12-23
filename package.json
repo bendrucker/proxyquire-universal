@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/bendrucker/proxyquire-universal",
   "devDependencies": {
-    "array-includes": "~3.0.3",
+    "array-includes": "~3.1.0",
     "browserify": "latest",
     "detective": "~5.2.0",
     "escape-string-regexp": "~2.0.0",
