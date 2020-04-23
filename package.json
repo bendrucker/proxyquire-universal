@@ -25,7 +25,7 @@
     "array-includes": "~3.1.0",
     "browserify": "latest",
     "detective": "~5.2.0",
-    "escape-string-regexp": "~3.0.0",
+    "escape-string-regexp": "~4.0.0",
     "pff": "~1.0.0",
     "proxyquire": "^2.1.0",
     "proxyquireify": "^3.0.0",
