@@ -31,7 +31,7 @@
     "proxyquireify": "^3.0.0",
     "standard": "^14.0.0",
     "stream-to-promise": "^2.2.0",
-    "tape": "~5.0.0",
+    "tape": "~5.0.1",
     "xtend": "~4.0.0"
   },
   "peerDependencies": {
