@@ -1,16 +1,16 @@
 'use strict'
 
-var test = require('tape')
-var includes = require('array-includes')
-var browserify = require('browserify')
-var printf = require('pff')
-var escapeStringRegexp = require('escape-string-regexp')
-var detective = require('detective')
-var proxyquireUniversal = require('../')
+const test = require('tape')
+const includes = require('array-includes')
+const browserify = require('browserify')
+const printf = require('pff')
+const escapeStringRegexp = require('escape-string-regexp')
+const detective = require('detective')
+const proxyquireUniversal = require('../')
 
 test(function (t) {
-  var pqify = 'require(\'proxyquireify\')(require)'
-  var pqifyRegexp = escape(pqify)
+  const pqify = 'require(\'proxyquireify\')(require)'
+  const pqifyRegexp = escape(pqify)
 
   bundle('default', function (t, requires, code) {
     console.log(requires)
@@ -34,7 +34,7 @@ test(function (t) {
   })
 
   bundle('multiple', function (t, requires, code) {
-    var proxyquires = requires.filter(function (id) {
+    const proxyquires = requires.filter(function (id) {
       return id === 'proxyquireify'
     })
     t.equal(proxyquires.length, 2)
