@@ -1,5 +1,4 @@
-proxyquire-universal [![Build Status](https://travis-ci.org/bendrucker/proxyquire-universal.svg?branch=master)](https://travis-ci.org/bendrucker/proxyquire-universal)
-====================
+# proxyquire-universal [![tests](https://github.com/bendrucker/proxyquire-universal/workflows/tests/badge.svg)](https://github.com/bendrucker/proxyquire-universal/actions?query=workflow%3Atests)
 
 Browserify plugin that allows you to replace [proxyquire](https://github.com/thlorenz/proxyquire) with [proxyquireify](https://github.com/thlorenz/proxyquireify) without code changes. If you only need to run your tests in a browser, just use [proxyquireify](https://github.com/thlorenz/proxyquireify) directly. Make sure you're not using [proxyquire features that don't have proxyquireify counterparts](#unsupported-proxyquire-features).
 
