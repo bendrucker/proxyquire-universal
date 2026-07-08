@@ -1,11 +1,11 @@
 'use strict'
 
-const through = require('through2')
+const { PassThrough } = require('stream')
 const transformify = require('transformify')
 const replaceRequires = require('replace-requires')
 
 module.exports = function (file, options) {
-  if (/\.json$/.test(file)) return through()
+  if (/\.json$/.test(file)) return new PassThrough()
   return transformify(replaceProxyquire)()
 }
 
